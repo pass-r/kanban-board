@@ -7,9 +7,9 @@ import "./styles/styles.css";
 
 export default function App() {
     const [items, setItems] = useState({
-        A: ["item 1", "item 2", "item 3"],
-        B: ["item 4", "item 5"],
-        C: [],
+        "column 1": ["item 1", "item 2", "item 3"],
+        "column 2": ["item 4", "item 5"],
+        "column 3": [],
     });
 
     const previousItems = useRef(items);
