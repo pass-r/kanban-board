@@ -11,8 +11,11 @@ export default function Column({ children, id, index }) {
     });
 
     return (
-        <div className="column" ref={ref}>
-            {children}
-        </div>
+        <>
+            <div className="column" ref={ref}>
+                <h2>{id}</h2>
+                {children}
+            </div>
+        </>
     );
 }
