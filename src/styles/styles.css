@@ -60,7 +60,7 @@ body {
 .board-container {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 2em auto 0;
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
