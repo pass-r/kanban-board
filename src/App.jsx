@@ -1,58 +1,15 @@
-import { useState, useRef } from "react";
-import { DragDropProvider } from "@dnd-kit/react";
-import { move } from "@dnd-kit/helpers";
-import Column from "./components/Column.jsx";
-import Item from "./components/Item.jsx";
+import Titlebar from "./layout/Titlebar.jsx";
+import Board from "./layout/Board.jsx";
+import KanbanProvider from "./context/KanbanProvider.jsx";
 import "./styles/styles.css";
 
 export default function App() {
-    const [items, setItems] = useState({
-        "column 1": ["item 1", "item 2", "item 3"],
-        "column 2": ["item 4", "item 5"],
-        "column 3": [],
-    });
-
-    const previousItems = useRef(items);
-    const [columnOrder, setColumnsOrder] = useState(() => Object.keys(items));
-
     return (
-        <DragDropProvider
-            onDragStart={() => {
-                previousItems.current = items;
-            }}
-            onDragOver={(event) => {
-                const { source } = event.operation;
-
-                if (source?.type === "column") return;
-
-                setItems((items) => move(items, event));
-            }}
-            onDragEnd={(event) => {
-                const { source } = event.operation;
-                console.log(event);
-
-                if (event.canceled) {
-                    if (source.type === "item") {
-                        setItems(previousItems.current);
-                    }
-                    return;
-                }
-                if (source.type === "columns") {
-                    setColumnsOrder((columns) => move(columns, event));
-                }
-            }}
-        >
+        <KanbanProvider>
+            <Titlebar />
             <div className="container">
-                <div className="board-container">
-                    {columnOrder.map((column, columnIndex) => (
-                        <Column key={column} id={column} index={columnIndex}>
-                            {items[column].map((id, index) => (
-                                <Item key={id} id={id} index={index} column={column} />
-                            ))}
-                        </Column>
-                    ))}
-                </div>
+                <Board />
             </div>
-        </DragDropProvider>
+        </KanbanProvider>
     );
 }
