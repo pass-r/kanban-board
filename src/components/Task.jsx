@@ -1,17 +1,18 @@
 import { useSortable } from "@dnd-kit/react/sortable";
+import { KanbanContext } from "../context/KanbanContext.js";
 
-export default function Item({ id, index, column }) {
+export default function Task({ id, index, columnId, taskObj }) {
     const { ref, isDragging } = useSortable({
         id,
         index,
         type: "item",
         accept: "item",
-        group: column,
+        group: columnId,
     });
 
     return (
         <button className="item" ref={ref} data-dragging={isDragging}>
-            {id}
+            {taskObj.name}
         </button>
     );
 }
