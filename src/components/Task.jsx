@@ -11,7 +11,7 @@ export default function Task({ id, index, columnId, taskObj }) {
     });
 
     return (
-        <button className="item" ref={ref} data-dragging={isDragging}>
+        <button className="task" ref={ref} data-dragging={isDragging}>
             {taskObj.name}
         </button>
     );
