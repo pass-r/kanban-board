@@ -4,6 +4,7 @@ import { move } from "@dnd-kit/helpers";
 import Column from "../components/Column.jsx";
 import Task from "../components/Task.jsx";
 import { KanbanContext } from "../context/KanbanContext.js";
+import styles from "../styles/Board.module.css";
 
 export default function Board() {
     const {

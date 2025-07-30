@@ -1,5 +1,6 @@
 import { useSortable } from "@dnd-kit/react/sortable";
 import { CollisionPriority } from "@dnd-kit/abstract";
+import styles from "../styles/Column.module.css";
 
 export default function Column({ children, id, index, columnObj }) {
     const { ref } = useSortable({
