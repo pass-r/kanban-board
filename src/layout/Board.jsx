@@ -41,25 +41,27 @@ export default function Board() {
                 }
             }}
         >
-            <main className="board-container">
-                {columnsOrder.map((columnId, columnIndex) => (
-                    <Column
-                        key={columnId}
-                        id={columnId}
-                        index={columnIndex}
-                        columnObj={columns[columnId]}
-                    >
-                        {boardPositions[columnId].map((taskId, index) => (
-                            <Task
-                                key={taskId}
-                                id={taskId}
-                                index={index}
-                                columnId={columnId}
-                                taskObj={tasks[taskId]}
-                            />
-                        ))}
-                    </Column>
-                ))}
+            <main className="main">
+                <div className="board-container">
+                    {columnsOrder.map((columnId, columnIndex) => (
+                        <Column
+                            key={columnId}
+                            id={columnId}
+                            index={columnIndex}
+                            columnObj={columns[columnId]}
+                        >
+                            {boardPositions[columnId].map((taskId, index) => (
+                                <Task
+                                    key={taskId}
+                                    id={taskId}
+                                    index={index}
+                                    columnId={columnId}
+                                    taskObj={tasks[taskId]}
+                                />
+                            ))}
+                        </Column>
+                    ))}
+                </div>
             </main>
         </DragDropProvider>
     );
