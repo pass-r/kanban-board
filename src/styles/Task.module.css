@@ -1,0 +1,17 @@
+.task {
+    background: white;
+    padding: 0.8em;
+    border: none;
+    border-radius: 5px;
+    transition:
+        border 0.5s ease,
+        transform 0.2s ease;
+    transform: scale(1);
+    cursor: grab;
+}
+
+.task[data-dragging="true"] {
+    transform: scale(1.05);
+    background: rgb(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
