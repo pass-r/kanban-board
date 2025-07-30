@@ -13,7 +13,7 @@ export default function Column({ children, id, index, columnObj }) {
 
     return (
         <>
-            <div className="column" ref={ref}>
+            <div className={styles.column} ref={ref}>
                 <h2>{columnObj.name}</h2>
                 {children}
             </div>

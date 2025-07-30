@@ -41,8 +41,8 @@ export default function Board() {
                 }
             }}
         >
-            <main className="main">
-                <div className="board-container">
+            <main className={styles.main}>
+                <div className={styles.boardContainer}>
                     {columnsOrder.map((columnId, columnIndex) => (
                         <Column
                             key={columnId}
